@@ -21,7 +21,7 @@ stages:
     cmd: python src/visualization/visualize.py
     deps:
       - models/model.joblib
-      - /data/processed
+      - data/processed
       - src/visualization/visualize.py
     outs:
       - dvclive

@@ -14,11 +14,28 @@ stages:
       size: 642777
     - path: src/visualization/visualize.py
       hash: md5
-      md5: e64e889249e675c10a42c0b91a995921
-      size: 2530
+      md5: 8fb5e1ef65afdd488a6d3bac2c49ce85
+      size: 4036
     outs:
     - path: dvclive
       hash: md5
-      md5: d751713988987e9331980363e24189ce.dir
-      size: 0
-      nfiles: 0
+      md5: fef6eb054067b94f6b47638831d616ab.dir
+      size: 21176515
+      nfiles: 8
+  train_model:
+    cmd: python ./src/models/train_model.py
+    deps:
+    - path: ./src/models/train_model.py
+      hash: md5
+      md5: 61549c085d79b0a17e821289e75b1d0e
+      size: 1498
+    - path: data/processed/train.csv
+      hash: md5
+      md5: 45a357eb9404a6b91c2840d00c672959
+      size: 120882564
+    outs:
+    - path: models
+      hash: md5
+      md5: e8618c383176f0f4ef3cae5fbb1e6fe5.dir
+      size: 642777
+      nfiles: 1
