@@ -35,7 +35,7 @@ def main():
     input_file=params_dvc['deps'][0]
     output_path = home_dir.as_posix() + params_dvc['outs'][0]
     data_path=(home_dir.as_posix() + input_file)
-    
+    print(data_path)
     df=load_data(data_path)
     train,test=split_data(df,params['params']['test_split'],params['params']['seed'])
     save_data(train,test,output_path)

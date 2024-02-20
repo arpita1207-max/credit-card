@@ -1,0 +1,24 @@
+schema: '2.0'
+stages:
+  models:
+    cmd: python src/visualization/visualize.py
+    deps:
+    - path: data/processed
+      hash: md5
+      md5: 703ca2d8f648328d1da1c2b2d44d3847.dir
+      size: 151102527
+      nfiles: 2
+    - path: models/model.joblib
+      hash: md5
+      md5: 6c0ff5e6ccf44e09c2e4831b66f625a6
+      size: 642777
+    - path: src/visualization/visualize.py
+      hash: md5
+      md5: e64e889249e675c10a42c0b91a995921
+      size: 2530
+    outs:
+    - path: dvclive
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0

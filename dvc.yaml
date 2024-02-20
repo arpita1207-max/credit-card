@@ -9,23 +9,19 @@ stages:
       - make_dataset.seed
     outs:
       - /data/processed/
-
   train_model:
-    cmd: python /src/models/train_model.py  data/processed/train.csv
+    cmd: python ./src/models/train_model.py
     deps:
       - data/processed/train.csv
-      - /src/models/train_model.py
-    params:
-      - train_model.n_estimators
-      - train_model.max_depth
-      - train_model.seed
+      - ./src/models/train_model.py
     outs:
       - models
+
   models:
     cmd: python src/visualization/visualize.py
     deps:
       - models/model.joblib
-      - /data/processed/
+      - /data/processed
       - src/visualization/visualize.py
     outs:
       - dvclive
