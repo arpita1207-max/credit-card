@@ -24,12 +24,4 @@ jobs:
 
       - name: Run main file
         run: |
-          python src/data/make_dataset.py
-
-      - name: Run main file
-        run: |
-          python src/models/train_model.py
-
-      - name: Run main file
-        run: |
-          python src/visualization/visualize.py
+          python app-uvicorn.py

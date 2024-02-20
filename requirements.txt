@@ -12,4 +12,6 @@ joblib
 matplotlib
 scikit-learn
 pandas
+uvicorn
+fastapi
 
