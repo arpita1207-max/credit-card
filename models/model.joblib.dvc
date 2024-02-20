@@ -1,5 +1,0 @@
-outs:
-- md5: 6c0ff5e6ccf44e09c2e4831b66f625a6
-  size: 642777
-  hash: md5
-  path: model.joblib
