@@ -8,7 +8,7 @@ stages:
       - make_dataset.test_split
       - make_dataset.seed
     outs:
-      - ./data/processed/
+      - /data/processed/
 
   train_model:
     cmd: python /src/models/train_model.py  data/processed/train.csv
@@ -21,3 +21,34 @@ stages:
       - train_model.seed
     outs:
       - models
+  models:
+    cmd: python src/visualization/visualize.py
+    deps:
+      - models/model.joblib
+      - /data/processed/
+      - src/visualization/visualize.py
+    outs:
+      - dvclive
+
+metrics:
+  - dvclive\metrics.json
+
+plots:
+  - ROC:
+      template: simple
+      x: fpr
+      y:
+        dvclive\plots\sklearn\roc\train.json: tpr
+        dvclive\plots\sklearn\roc\test.json: tpr
+  - Confusion-Matrix:
+      template: confusion
+      x: actual
+      y:
+        dvclive\plots\sklearn\cm\train.json: predicted
+        dvclive\plots\sklearn\cm\test.json: predicted
+  - Precision-Recall:
+      template: simple
+      x: recall
+      y:
+        dvclive\plots\sklearn\prc\train.json: precision
+        dvclive\plots\sklearn\prc\test.json: precision
